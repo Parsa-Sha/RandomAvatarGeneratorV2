@@ -1,3 +1,8 @@
+// Random Avatar Generator V2
+// Imports any number of images, and randomizes which appear based on file name. First version was flawed
+// 02/21/2022
+// https://github.com/Parsa-Sha/RandomAvatarGeneratorV2
+
 import java.io.File;
 
 boolean systemInProgress = false;
