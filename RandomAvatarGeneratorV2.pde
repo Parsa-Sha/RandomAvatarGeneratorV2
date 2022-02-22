@@ -64,26 +64,6 @@ void keyPressed() {
     }
   }
   
-  if(key=='a'||key=='A'){
-    
-    for(int i = 0; i < alphabetCount.length; i++) {    
-      if (alphabetCountExists[i] == true){
-        for(int j = 0; j < alphabetCount[i]; j++) {
-          for(int k = 0; k < alphabetCount.length; k++) {    
-            if (alphabetCountExists[k] == true){
-              int randomSelector = j;
-              int currentCharCode = 97+k;
-              char alphabetChar = char(currentCharCode);
-              PImage aImage = loadImage("input\\" + alphabetChar + nf((randomSelector + 1), 3) + ".png");
-              image(aImage, 0, 0);
-            }    
-          }
-        saveFrame("output\\composite" + nf(headCount, 6) + ".png");
-        }
-      }
-    }
-  }
-  
   if(key=='s'||key=='S') {
     saveFrame("output\\composite" + nf(headCount, 6) + ".png");
     headCount++;
