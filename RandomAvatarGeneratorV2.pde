@@ -36,26 +36,26 @@ void setup() {
   numberOfCurrentLetterFiles = 0;
   pastFileChar = 'a';
   
-  for(int i = 0; i < alphabetCountExists.length; i++) alphabetCountExists[i] = false;
-  for (int i = 0; i < numberOfFiles; i++){  
+  for(int i = 0; i < alphabetCountExists.length; i++) alphabetCountExists[i] = false; // Make sure all are currently false
+  for (int i = 0; i < numberOfFiles; i++){  // For each file, check if the first letter is the same as the last
     currentFile = files[i].getName();
     currentFileChar = currentFile.charAt(0);
-    if (pastFileChar != currentFileChar || i == numberOfFiles-1) {
-      if(i == numberOfFiles-1) alphabetCount[indexOfCurrentLetterArray] = numberOfCurrentLetterFiles + 1;
+    if (pastFileChar != currentFileChar || i == numberOfFiles-1) { // Including failsafe for the last one because of some errors
+      if(i == numberOfFiles-1) alphabetCount[indexOfCurrentLetterArray] = numberOfCurrentLetterFiles + 1; // More failsafe
       else alphabetCount[indexOfCurrentLetterArray] = numberOfCurrentLetterFiles;
-      alphabetCountExists[indexOfCurrentLetterArray] = true;
+      alphabetCountExists[indexOfCurrentLetterArray] = true; // Array of booleans for random pattern
       indexOfCurrentLetterArray++;
       numberOfCurrentLetterFiles = 1;
     } else {
       numberOfCurrentLetterFiles++; 
     }
-    pastFileChar = currentFileChar;
+    pastFileChar = currentFileChar; // Setting current letter to past letter
   }
 }
 
 void draw() {}
 
-void keyPressed() {
+void keyPressed() { // Randomizing function, for each letter group, randomize a number and use the image of the file with that letter and number
   if(key=='r'||key=='R'){
     background(128);
     for(int i = 0; i < alphabetCount.length; i++) {    
@@ -69,7 +69,7 @@ void keyPressed() {
     }
   }
   
-  if(key=='s'||key=='S') {
+  if(key=='s'||key=='S') { // Saving function
     saveFrame("output\\composite" + nf(headCount, 6) + ".png");
     headCount++;
     rectMode(CENTER);
