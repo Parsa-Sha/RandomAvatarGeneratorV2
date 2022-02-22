@@ -5,17 +5,14 @@
 
 import java.io.File;
 
-boolean systemInProgress = false;
-File dir = new File(sketchPath());
+File dir = new File(sketchPath()); // Creating directory of the current program to access the folder, then creating file array and file length 
 File [] files = dir.listFiles();
 int numberOfFiles = files.length;
 
-PImage allImages[] = new PImage[500];
-int alphabetCount[] = new int[26];
-boolean alphabetCountExists[] = new boolean[26];
-boolean frameSaved = false;
-int headCount = 0;
-String currentFile;
+int alphabetCount[] = new int[26]; // Number of files starting with every letter
+boolean alphabetCountExists[] = new boolean[26]; // Checking if previous array elements are not null
+int headCount = 0; // Number of times a photo has been saved
+String currentFile; // These five are used for updating alphabetCount[]
 char currentFileChar;
 char pastFileChar;
 int numberOfCurrentLetterFiles = 0;
@@ -29,7 +26,7 @@ void setup() {
   textAlign(CENTER);
   text("Press 'R' to generate random image, 'S' to save", width/2, height/2);
   
-  dir = new File(sketchPath() + "\\input");
+  dir = new File(sketchPath() + "\\input"); // Updating path, array, and length
   File files[] = dir.listFiles();
   numberOfFiles = files.length;
   
