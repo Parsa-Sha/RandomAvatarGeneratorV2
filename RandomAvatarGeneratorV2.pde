@@ -84,9 +84,6 @@ void keyPressed() {
     }
   }
   
-  
-  
-  
   if(key=='s'||key=='S') {
     saveFrame("output\\composite" + nf(headCount, 6) + ".png");
     headCount++;
